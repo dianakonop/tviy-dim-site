@@ -1,0 +1,82 @@
+.scroll-button {
+  position: fixed;
+  right: 24px;
+  bottom: 28px;
+  z-index: 1000;
+
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(237, 243, 94, 0.35);
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.88);
+  color: #fff;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px) scale(0.9);
+  pointer-events: none;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    0 0 26px rgba(237, 243, 94, 0.22);
+
+  backdrop-filter: blur(8px);
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.scroll-button--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.scroll-button:hover {
+  background: #edf35e;
+  color: #000;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.38),
+    0 0 34px rgba(237, 243, 94, 0.55);
+}
+
+.scroll-button__glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: rgba(237, 243, 94, 0.18);
+  filter: blur(14px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.scroll-button__icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+@media (max-width: 768px) {
+  .scroll-button {
+    right: 16px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .scroll-button__icon {
+    width: 22px;
+    height: 22px;
+  }
+}

@@ -1,0 +1,63 @@
+@import '../components/Header/Header.css';
+@import '../components/Hero/Hero.css';
+@import '../components/ServiceDetailsCarousel/ServiceDetailsCarousel.css';
+@import '../components/ReviewsSection/ReviewsSection.css';
+@import '../components/ContactsSection/ContactsSection.css';
+@import './responsive.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.site-shell {
+  min-height: 100vh;
+  background: #000;
+}
+
+.site-main {
+  min-height: calc(100vh - 64px);
+}
+
+.container {
+  width: min(100%, 1780px);
+  margin: 0 auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.page-placeholder {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.page-placeholder h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page-placeholder h1 {
+    font-size: 34px;
+  }
+}

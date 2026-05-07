@@ -1,0 +1,180 @@
+.tech-passport-flow {
+  background: #000;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.tech-passport-flow__card {
+  position: relative;
+  min-height: calc(100vh - 84px);
+  border-radius: 28px;
+  overflow: hidden;
+  padding: 18px 18px 22px;
+  background: #efefef;
+}
+
+.tech-passport-flow__back {
+  position: absolute;
+  top: 18px;
+  left: 14px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.32);
+  color: #111;
+  font-size: 22px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.tech-passport-flow__back:hover {
+  transform: translateY(-1px);
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+.tech-passport-flow__watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(180px, 18vw, 360px);
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.04);
+  pointer-events: none;
+  user-select: none;
+}
+
+.tech-passport-flow__prices {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 120px;
+}
+
+.tech-passport-flow__price-block {
+  background: rgba(255, 255, 255, 0.38);
+  padding: 18px 16px 22px;
+  text-align: center;
+  min-height: 480px;
+}
+
+.tech-passport-flow__price-block-title {
+  min-height: 78px;
+  margin-bottom: 18px;
+  color: #111;
+  font-size: clamp(20px, 1.5vw, 28px);
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.tech-passport-flow__price-item {
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 14px 12px;
+  margin-bottom: 14px;
+}
+
+.tech-passport-flow__price-item:last-child {
+  margin-bottom: 0;
+}
+
+.tech-passport-flow__price-label {
+  margin-bottom: 8px;
+  color: #222;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+.tech-passport-flow__price-value {
+  color: #111;
+  font-size: clamp(22px, 1.8vw, 34px);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.tech-passport-flow__order-btn {
+  position: relative;
+  z-index: 2;
+  margin: 24px auto 0;
+  min-width: 220px;
+  min-height: 58px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.tech-passport-flow__order-btn:hover {
+  transform: translateY(-2px);
+  background: #edf35e;
+  color: #000;
+  border-color: #edf35e;
+}
+
+@media (max-width: 768px) {
+  .tech-passport-flow {
+    min-height: auto;
+    padding: 10px 0 18px;
+  }
+
+  .tech-passport-flow__card {
+    min-height: auto;
+    padding: 16px 10px 18px;
+  }
+
+  .tech-passport-flow__prices {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 70px;
+  }
+
+  .tech-passport-flow__price-block {
+    min-height: auto;
+  }
+
+  .tech-passport-flow__price-block-title {
+    min-height: auto;
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .tech-passport-flow__price-label {
+    font-size: 14px;
+  }
+
+  .tech-passport-flow__price-value {
+    font-size: 24px;
+  }
+
+  .tech-passport-flow__order-btn {
+    min-width: 170px;
+    min-height: 48px;
+    font-size: 17px;
+  }
+}
