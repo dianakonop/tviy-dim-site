@@ -1,123 +1,104 @@
-/* ========================= */
-/* RESPONSIVE FIXES */
-/* ========================= */
+/* RESPONSIVE FINAL FIX */
 
-/* tablets / small laptops */
 @media (max-width: 1200px) {
   .container {
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 100%;
+    padding-left: clamp(14px, 3vw, 24px);
+    padding-right: clamp(14px, 3vw, 24px);
   }
 
   .header {
     height: auto;
-    min-height: 74px;
     padding: 10px 0;
   }
 
   .header__container {
-    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
   }
 
   .header__logo {
-    min-width: auto;
+    min-width: 0;
   }
 
   .header__logo-text {
-    font-size: 24px;
-  }
-
-  .header__logo-img {
-    width: 46px;
-    height: 46px;
+    font-size: clamp(22px, 3vw, 28px);
   }
 
   .header__menu {
-    gap: 34px;
+    gap: clamp(20px, 4vw, 42px);
   }
 
   .header__menu-link,
   .header__menu-link:visited {
-    font-size: 18px;
+    font-size: clamp(17px, 2vw, 21px);
   }
 
-  .header__socials {
-    min-width: auto;
-  }
-
-  .hero__container {
+  .hero__container,
+  .service-showcase__card {
     grid-template-columns: 1fr;
-    text-align: center;
-    gap: 34px;
   }
 
-  .hero__content {
-    margin: 0 auto;
+  .hero__content,
+  .hero__text {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 
   .hero__right {
     align-items: center;
   }
-
-  .service-details-carousel__price-groups,
-  .commissioning-flow__prices--commissioning,
-  .tech-passport-compact {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
-/* phones / tablets */
 @media (max-width: 768px) {
+  html,
   body {
+    width: 100%;
     overflow-x: hidden;
   }
 
-  .container {
-    padding-left: 12px;
-    padding-right: 12px;
+  .site-main {
+    min-height: auto;
   }
 
   .header {
     position: sticky;
     top: 0;
-    height: auto;
-    min-height: auto;
-    padding: 10px 0 12px;
+    padding: 8px 0;
   }
 
   .header__container {
     flex-direction: column;
-    justify-content: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .header__logo {
     width: 100%;
-    min-width: 0;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
   }
 
   .header__logo-img {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
   }
 
   .header__logo-text {
-    font-size: clamp(22px, 6vw, 30px);
+    font-size: clamp(19px, 6vw, 24px);
   }
 
   .header__socials {
     order: 2;
     width: 100%;
-    min-width: 0;
     justify-content: center;
-    gap: 16px;
+    gap: 12px;
   }
 
   .header__social-link {
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
   }
 
   .header__nav {
@@ -129,163 +110,143 @@
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 14px 22px;
   }
 
   .header__menu-link,
   .header__menu-link:visited {
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .header__submenu {
-    width: 280px;
-    left: 50%;
-  }
-
-  .header__submenu li a {
-    font-size: 14px;
-    padding: 12px 14px;
+    width: min(92vw, 300px);
   }
 
   .hero {
     min-height: auto;
-    padding: 42px 0 50px;
+    padding: 26px 0 34px;
   }
 
   .hero__container {
     display: flex;
     flex-direction: column;
-    gap: 34px;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .hero__content {
-    order: 1;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .hero__right {
-    order: 2;
-    width: 100%;
-    align-items: center;
+    gap: 26px;
+    padding: 0 14px;
   }
 
   .hero__title {
-    font-size: clamp(38px, 11vw, 58px);
+    font-size: clamp(32px, 9vw, 44px);
     line-height: 1.05;
-    letter-spacing: -1px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
 
   .hero__text {
-    max-width: 92%;
-    margin: 0 auto 30px;
-    font-size: clamp(18px, 5vw, 24px);
-    line-height: 1.45;
+    max-width: 100%;
+    font-size: clamp(16px, 4.4vw, 19px);
+    line-height: 1.4;
+    margin-bottom: 22px;
   }
 
   .hero__button {
-    min-width: 280px;
-    min-height: 62px;
-    font-size: 19px;
+    min-width: 240px;
+    min-height: 54px;
+    font-size: 16px;
   }
 
   .hero__contact-dropdown {
-    top: calc(100% + 10px);
+    top: calc(100% + 8px);
     left: 50%;
-    transform: translate(-50%, -8px);
+    transform: translate(-50%, -6px);
   }
 
   .hero__contact-wrapper:hover .hero__contact-dropdown {
     transform: translate(-50%, 0);
   }
 
-  .hero__image-wrap {
-    max-width: 100%;
-  }
-
   .hero__image {
     height: auto;
-    max-height: 280px;
-    object-fit: cover;
-    border-radius: 26px;
+    max-height: 260px;
+    border-radius: 22px;
   }
 
   .hero__stats {
     grid-template-columns: 1fr;
-    gap: 18px;
-    margin-top: 24px;
+    gap: 12px;
   }
 
   .hero__stat {
-    min-height: 130px;
-    border-radius: 22px;
-    padding: 22px 12px;
+    min-height: 105px;
+    padding: 16px 10px;
   }
 
   .hero__stat-number {
-    font-size: 46px;
+    font-size: 38px;
   }
 
   .hero__stat-text {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .service-showcase {
     min-height: auto;
-    padding: 18px 0;
+    padding: 14px 0;
   }
 
   .service-showcase__card {
-    grid-template-columns: 1fr;
     height: auto;
-    border-radius: 26px;
+    border-radius: 22px;
   }
 
   .service-showcase__left {
-    grid-template-rows: auto auto auto;
-    padding: 28px 18px 22px;
+    grid-template-rows: auto;
+    padding: 24px 16px 18px;
   }
 
-  .service-showcase__right {
-    min-height: 240px;
+  .service-showcase__title {
+    font-size: clamp(26px, 8vw, 36px);
   }
 
+  .service-showcase__description {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .service-showcase__controls {
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .service-showcase__right,
   .service-showcase__image {
     min-height: 240px;
   }
 
   .service-details-carousel {
     min-height: auto;
-    padding: 18px 0;
+    padding: 14px 0;
   }
 
   .service-details-carousel__card {
     min-height: auto;
-    border-radius: 26px;
-    padding: 34px 16px 90px;
+    border-radius: 22px;
+    padding: 28px 14px 82px;
   }
 
   .service-details-carousel__title {
-    font-size: clamp(34px, 10vw, 50px);
+    font-size: clamp(30px, 8.5vw, 42px);
     line-height: 1.08;
     letter-spacing: -1px;
   }
 
-  .service-details-carousel__text {
+  .service-details-carousel__text,
+  .service-details-carousel__list {
     font-size: 16px;
     line-height: 1.45;
   }
 
   .service-details-carousel__subtitle {
     font-size: 20px;
-  }
-
-  .service-details-carousel__list {
-    font-size: 16px;
-    line-height: 1.45;
   }
 
   .service-details-carousel__price-groups,
@@ -295,10 +256,10 @@
     grid-template-columns: 1fr;
   }
 
-  .service-details-carousel__price-group {
+  .service-details-carousel__price-group,
+  .commissioning-flow__price-card,
+  .commissioning-flow__price-card--commissioning {
     min-height: auto;
-    padding: 26px 18px;
-    border-radius: 24px;
   }
 
   .service-details-carousel__report-card {
@@ -313,23 +274,23 @@
   .service-details-carousel__btn,
   .commissioning-flow__choice {
     width: 100%;
-    max-width: 250px;
+    max-width: 260px;
   }
 
   .commissioning-flow {
     min-height: auto;
-    padding: 18px 0;
+    padding: 14px 0;
   }
 
   .commissioning-flow__card {
     min-height: auto;
-    border-radius: 26px;
-    padding: 24px 12px 26px;
+    border-radius: 22px;
+    padding: 24px 12px 24px;
   }
 
   .commissioning-flow__title {
-    font-size: clamp(30px, 9vw, 42px);
-    line-height: 1.05;
+    font-size: clamp(30px, 8.5vw, 42px);
+    line-height: 1.08;
     padding-top: 54px;
   }
 
@@ -338,112 +299,87 @@
     line-height: 1.45;
   }
 
-  .commissioning-flow__back {
-    top: 14px;
-    left: 14px;
-    width: 48px;
-    height: 42px;
-  }
-
-  .commissioning-flow__prices--commissioning,
-  .commissioning-flow__prices:not(.commissioning-flow__prices--commissioning) {
-    margin-top: 64px;
-  }
-
-  .contacts-section {
+  .contacts-section,
+  .reviews-section {
     min-height: auto;
-    padding: 18px 0;
+    padding: 14px 0;
   }
 
-  .contacts-section__card {
+  .contacts-section__card,
+  .reviews-section__stage {
     min-height: auto;
-    border-radius: 26px;
-    padding: 24px 16px 22px;
+    border-radius: 22px;
   }
 
   .contacts-section__content {
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .contacts-section__title {
-    font-size: 36px;
-  }
-
-  .contacts-section__button {
-    width: 100%;
-    max-width: 260px;
-    font-size: 20px;
-  }
-
-  .reviews-section {
-    min-height: auto;
-    padding: 18px 0;
   }
 
   .reviews-section__stage {
-    min-height: 720px;
-    border-radius: 26px;
+    min-height: 680px;
   }
 
   .reviews-section__grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 130px;
+    grid-auto-rows: 120px;
+  }
+
+  .reviews-section__title {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .reviews-section__text {
+    font-size: 18px;
   }
 
   .reviews-section__button {
-    min-width: 230px;
-  }
-
-  .scroll-button {
-    right: 14px;
-    bottom: 18px;
+    min-width: 0;
+    width: 100%;
+    max-width: 280px;
   }
 }
 
-/* very small phones */
 @media (max-width: 480px) {
-  .container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
   .header__menu {
-    gap: 14px;
+    gap: 10px 16px;
   }
 
   .header__menu-link,
   .header__menu-link:visited {
-    font-size: 15px;
-  }
-
-  .hero {
-    padding-top: 34px;
+    font-size: 14px;
   }
 
   .hero__title {
-    font-size: 36px;
-  }
-
-  .hero__text {
-    font-size: 18px;
-  }
-
-  .hero__button {
-    min-width: 250px;
-    min-height: 56px;
-  }
-
-  .service-details-carousel__title,
-  .commissioning-flow__title {
     font-size: 32px;
+  }
+
+  .hero__image {
+    max-height: 220px;
   }
 
   .reviews-section__grid {
     grid-template-columns: 1fr;
+    grid-auto-rows: 120px;
   }
 
-  .contacts-section__contact-link {
-    font-size: 20px;
+  .service-details-carousel__nav {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 769px) {
+  .hero,
+  .service-details-carousel,
+  .commissioning-flow,
+  .contacts-section,
+  .reviews-section {
+    min-height: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .hero__image {
+    max-height: 360px;
   }
 }
