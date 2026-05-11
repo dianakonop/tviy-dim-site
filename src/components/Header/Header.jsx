@@ -4,17 +4,20 @@ import './Header.css'
 function Header() {
   const navigate = useNavigate()
 
+  const goToSection = (e, sectionId) => {
+    e.preventDefault()
+
+    navigate('/', {
+      state: { scrollTo: sectionId },
+    })
+  }
+
   const goToHero = (e) => {
     e.preventDefault()
 
-    navigate('/')
-
-    setTimeout(() => {
-      document.getElementById('hero')?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
-    }, 100)
+    navigate('/', {
+      state: { scrollTo: 'hero' },
+    })
   }
 
   return (
@@ -32,40 +35,57 @@ function Header() {
         <nav className="header__nav">
           <ul className="header__menu">
             <li className="header__menu-item header__menu-item--dropdown">
-              <a href="/#services-block" className="header__menu-link">
+              <a
+                href="/#services-block"
+                className="header__menu-link"
+                onClick={(e) => goToSection(e, 'services-block')}
+              >
                 послуги <span className="header__arrow">∨</span>
               </a>
 
               <ul className="header__submenu">
                 <li>
-                  <a href="/?service=tech-passport#services-block">Технічний паспорт</a>
+                  <Link to="/services/tech-passport/prices">Технічний паспорт</Link>
                 </li>
+
                 <li>
-                  <a href="/?service=commissioning#services-block">Введення в експлуатацію</a>
+                  <Link to="/services/commissioning">Введення в експлуатацію</Link>
                 </li>
+
                 <li>
-                  <a href="/?service=property-valuation#services-block">Оцінка нерухомого майна</a>
+                  <Link to="/services/property-valuation">Оцінка нерухомого майна</Link>
                 </li>
+
                 <li>
-                  <a href="/?service=building-passport#services-block">Проєктування, Будівельний паспорт</a>
+                  <Link to="/services/building-passport">Проєктування, Будівельний паспорт</Link>
                 </li>
+
                 <li>
-                  <a href="/?service=technical-report#services-block">Технічний звіт</a>
+                  <Link to="/services/technical-report/prices">Технічний звіт</Link>
                 </li>
+
                 <li>
-                  <a href="/?service=ownership-rights#services-block">Отримання прав власності</a>
+                  <Link to="/services/ownership-rights">Отримання прав власності</Link>
                 </li>
               </ul>
             </li>
 
             <li className="header__menu-item">
-              <a href="/#reviews" className="header__menu-link">
+              <a
+                href="/#reviews"
+                className="header__menu-link"
+                onClick={(e) => goToSection(e, 'reviews')}
+              >
                 відгуки
               </a>
             </li>
 
             <li className="header__menu-item">
-              <a href="/#contacts" className="header__menu-link">
+              <a
+                href="/#contacts"
+                className="header__menu-link"
+                onClick={(e) => goToSection(e, 'contacts')}
+              >
                 контакти
               </a>
             </li>

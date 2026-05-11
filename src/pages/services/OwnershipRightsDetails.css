@@ -1,123 +1,90 @@
 .ownership-details {
   background: #000;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 92px);
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 14px 0;
 }
 
 .ownership-details__card {
   position: relative;
-  width: 100%;
-  min-height: calc(100vh - 84px);
-  border-radius: 32px;
+  min-height: calc(100vh - 170px);
+  border-radius: 34px;
   overflow: hidden;
-  background: #000;
-  padding: 18px;
+  background: #efefef;
+  padding: 26px 34px 34px;
 }
 
 .ownership-details__back {
   position: absolute;
-  top: 18px;
-  left: 18px;
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
+  top: 28px;
+  left: 28px;
   z-index: 5;
-  display: inline-flex;
+  width: 56px;
+  height: 48px;
+  border: 1px solid rgba(237, 243, 94, 0.35);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+  font-size: 26px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(237, 243, 94, 0.18);
+  transition: 0.25s ease;
 }
 
 .ownership-details__back:hover {
-  transform: translateY(-1px);
   background: #edf35e;
   color: #000;
   border-color: #edf35e;
-}
-
-.ownership-details__glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  z-index: 1;
-  animation: ownershipGlow 6s ease-in-out infinite;
-}
-
-.ownership-details__glow--1 {
-  width: 500px;
-  height: 500px;
-  top: 70px;
-  left: 110px;
-  background: rgba(237, 243, 94, 0.58);
-}
-
-.ownership-details__glow--2 {
-  width: 430px;
-  height: 430px;
-  top: 110px;
-  right: 110px;
-  background: rgba(237, 243, 94, 0.42);
-  animation-delay: 1.2s;
-}
-
-.ownership-details__glow--3 {
-  width: 360px;
-  height: 360px;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(237, 243, 94, 0.28);
-  animation-delay: 2s;
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.32),
+    0 0 30px rgba(237, 243, 94, 0.45);
 }
 
 .ownership-details__inner {
-  position: relative;
-  z-index: 2;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 220px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 80px;
+  padding: 18px 80px 0;
 }
 
 .ownership-details__title {
-  color: #fff;
+  margin: 0 0 36px;
+  color: #111;
   text-align: center;
-  font-size: clamp(40px, 4vw, 78px);
-  line-height: 0.96;
-  margin: 0 0 24px;
+  font-size: clamp(50px, 4.8vw, 84px);
+  line-height: 0.95;
   font-weight: 400;
+  letter-spacing: -0.04em;
 }
 
 .ownership-details__content {
-  width: min(100%, 1300px);
+  width: min(100%, 1320px);
   margin: 0 auto;
 }
 
 .ownership-details__subtitle {
-  color: #fff;
-  font-size: clamp(24px, 1.8vw, 40px);
-  margin: 0 0 12px;
-  font-weight: 600;
+  margin: 0 0 18px;
+  color: #111;
+  font-size: clamp(28px, 2vw, 42px);
+  font-weight: 800;
 }
 
 .ownership-details__list {
-  color: #fff;
-  font-size: clamp(20px, 1.5vw, 30px);
-  line-height: 1.35;
-  padding-left: 28px;
-  margin: 0 0 28px;
+  margin: 0 0 34px;
+  padding-left: 36px;
+  color: #111;
+  font-size: clamp(20px, 1.45vw, 28px);
+  line-height: 1.4;
   list-style: disc;
 }
 
@@ -125,45 +92,34 @@
   margin-bottom: 8px;
 }
 
+.ownership-details__list li::marker {
+  color: #111;
+}
+
 .ownership-details__btn {
-  display: block;
+  width: fit-content;
+  min-width: 260px;
+  min-height: 66px;
   margin: 0 auto;
-  min-width: 280px;
-  min-height: 64px;
-  border: 2px solid rgba(255, 255, 255, 0.72);
-  background: transparent;
+  padding: 0 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: #000;
   color: #fff;
-  font-size: clamp(22px, 1.8vw, 34px);
+  text-decoration: none;
+  font-size: clamp(22px, 1.8vw, 32px);
+  font-weight: 600;
   cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: 0.25s ease;
 }
 
 .ownership-details__btn:hover {
   transform: translateY(-2px);
   background: #edf35e;
   color: #000;
-  border-color: #edf35e;
-  box-shadow: 0 0 24px rgba(237, 243, 94, 0.28);
-}
-
-@keyframes ownershipGlow {
-  0% {
-    transform: scale(1);
-    opacity: 0.58;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 0.92;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.58;
-  }
+  box-shadow: 0 0 20px rgba(237, 243, 94, 0.35);
 }
 
 @media (max-width: 768px) {
@@ -174,33 +130,34 @@
 
   .ownership-details__card {
     min-height: auto;
-    padding: 18px 12px 18px;
+    padding: 80px 16px 30px;
+    border-radius: 24px;
   }
 
   .ownership-details__inner {
     min-height: auto;
-    padding: 44px 14px 0;
+    padding: 0;
   }
 
   .ownership-details__title {
-    font-size: 34px;
-    margin-bottom: 16px;
+    font-size: 38px;
+    margin-bottom: 22px;
   }
 
   .ownership-details__subtitle {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .ownership-details__list {
     font-size: 16px;
     line-height: 1.35;
-    padding-left: 20px;
-    margin-bottom: 20px;
+    padding-left: 22px;
+    margin-bottom: 22px;
   }
 
   .ownership-details__btn {
-    min-width: 200px;
+    min-width: 190px;
     min-height: 52px;
-    font-size: 20px;
+    font-size: 19px;
   }
 }

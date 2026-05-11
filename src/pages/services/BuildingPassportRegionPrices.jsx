@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './CommissioningFlow.css'
 
 function BuildingPassportRegionPrices() {
@@ -11,13 +11,15 @@ function BuildingPassportRegionPrices() {
           <button
             type="button"
             className="commissioning-flow__back"
-            onClick={() => navigate('/?service=building-passport#services-block')}
+            onClick={() => navigate('/services/building-passport')}
             aria-label="Назад"
           >
             ←
           </button>
 
-          <div className="commissioning-flow__watermark">ОБЛАСТЬ</div>
+          <div className="commissioning-flow__watermark commissioning-flow__watermark--building-region">
+            ОБЛАСТЬ
+          </div>
 
           <div className="commissioning-flow__prices">
             <div className="commissioning-flow__price-card">

@@ -1,49 +1,58 @@
 .technical-report-flow {
-  background: #000;
-  min-height: calc(100vh - 64px);
+  background: #f4f4f4;
+  min-height: calc(100vh - 84px);
   display: flex;
-  align-items: center;
-  padding: 8px 0;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 0;
 }
 
 .technical-report-flow__card {
   position: relative;
+  width: 100%;
   min-height: calc(100vh - 84px);
-  border-radius: 28px;
+  border-radius: 0;
   overflow: hidden;
-  padding: 18px 18px 22px;
+  padding: 0 0 14px;
 }
 
 .technical-report-flow__inner {
   position: relative;
   z-index: 2;
-  min-height: calc(100vh - 120px);
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 8px;
 }
 
 .technical-report-flow__title {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   text-align: center;
   line-height: 1;
   font-weight: 400;
 }
 
+.technical-report-flow__title--mono {
+  color: #111;
+  font-size: clamp(38px, 3.5vw, 60px);
+}
+
 .technical-report-flow__viewport {
   width: 100%;
   overflow: hidden;
-  margin-bottom: 18px;
+  margin-top: 8px;
+  margin-bottom: 28px;
 }
 
 .technical-report-flow__track {
   display: flex;
-  gap: 16px;
+  gap: 18px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  padding: 8px 6px 14px;
+  padding: 8px 38px 16px;
   scrollbar-width: none;
 }
 
@@ -52,26 +61,42 @@
 }
 
 .technical-report-flow__report-card {
-  flex: 0 0 230px;
-  min-height: 300px;
+  flex: 0 0 clamp(245px, 17vw, 292px);
+  height: 350px;
   border-radius: 22px;
-  padding: 16px 14px 20px; 
+  padding: 22px 18px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.technical-report-flow__report-card--mono {
+  background: #efefef;
+  border: 1px solid #cfcfcf;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.07);
+}
+
 .technical-report-flow__report-title {
-  margin: 0 0 10px;
+  margin: 0;
   line-height: 1.05;
-  font-weight: 600;
+  font-weight: 800;
+}
+
+.technical-report-flow__report-title--mono {
+  color: #050505;
+  font-size: clamp(19px, 1.25vw, 24px);
 }
 
 .technical-report-flow__report-note {
-  min-height: 42px;
-  margin: 0 0 10px;
-  line-height: 1.15;
+  min-height: 48px;
+  margin: 0;
+  line-height: 1.18;
+}
+
+.technical-report-flow__report-note--mono {
+  color: #4b4b4b;
+  font-size: clamp(13px, 0.85vw, 15px);
 }
 
 .technical-report-flow__report-note--empty {
@@ -79,9 +104,14 @@
 }
 
 .technical-report-flow__report-price {
-  min-height: 32px;
-  margin-bottom: 8px;
+  min-height: 24px;
+  margin: 0;
   line-height: 1;
+}
+
+.technical-report-flow__report-price--mono {
+  color: #111;
+  font-size: clamp(15px, 0.95vw, 18px);
 }
 
 .technical-report-flow__report-price--empty {
@@ -90,130 +120,84 @@
 
 .technical-report-flow__report-value {
   line-height: 1;
-  font-weight: 500;
+  font-weight: 400;
+}
+
+.technical-report-flow__report-value--mono {
+  color: #050505;
+  font-size: clamp(28px, 1.8vw, 36px);
 }
 
 .technical-report-flow__progress {
   position: relative;
-  width: min(100%, 320px);
-  height: 14px;
+  width: min(100%, 500px);
+  height: 18px;
   border-radius: 999px;
-  margin-bottom: 22px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.technical-report-flow__progress--mono {
+  background: rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.12),
+    0 0 12px rgba(0, 0, 0, 0.06);
 }
 
 .technical-report-flow__progress-thumb {
   position: absolute;
   top: 2px;
   left: 0;
-  width: 42%;
-  height: 10px;
+  width: 38%;
+  height: 14px;
   border-radius: 999px;
   transform: translateX(-50%);
   transition: left 0.15s linear;
 }
 
+.technical-report-flow__progress-thumb--mono {
+  background: linear-gradient(90deg, #d9dc6a, #edf35e, #d9dc6a);
+  box-shadow:
+    0 0 16px rgba(237, 243, 94, 0.8),
+    0 0 28px rgba(237, 243, 94, 0.45);
+  animation: techProgressGlow 1.8s ease-in-out infinite;
+}
+
+@keyframes techProgressGlow {
+  0% {
+    box-shadow:
+      0 0 10px rgba(237, 243, 94, 0.5),
+      0 0 18px rgba(237, 243, 94, 0.25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 20px rgba(237, 243, 94, 0.95),
+      0 0 36px rgba(237, 243, 94, 0.55);
+  }
+
+  100% {
+    box-shadow:
+      0 0 10px rgba(237, 243, 94, 0.5),
+      0 0 18px rgba(237, 243, 94, 0.25);
+  }
+}
+
 .technical-report-flow__order-btn {
-  min-width: 210px;
-  min-height: 54px;
+  min-width: 220px;
+  min-height: 56px;
+  border-radius: 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-weight: 600;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-
-
-.technical-report-flow--mono {
-  background: #000;
-}
-
-.technical-report-flow__card--mono {
-  background: #000;
-  border-radius: 30px;
-}
-
-.technical-report-flow__back {
-  position: absolute;
-  top: 18px;
-  left: 14px;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  font-size: 22px;
+  font-weight: 700;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.technical-report-flow__back--mono {
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.04);
-  color: #fff;
-}
-
-.technical-report-flow__back--mono:hover {
-  transform: translateY(-1px);
-  background: #fff;
-  color: #000;
-  border-color: #fff;
-}
-
-.technical-report-flow__title--mono {
-  color: #fff;
-  font-size: clamp(44px, 4.2vw, 82px);
-}
-
-.technical-report-flow__report-card--mono {
-  background: #e9e9e9;
-  border: 2px solid rgba(0, 0, 0, 0.32);
-  box-shadow: none;
-}
-
-.technical-report-flow__report-title--mono {
-  color: #111;
-  font-size: 26px;
-}
-
-.technical-report-flow__report-note--mono {
-  color: #505050;
-  font-size: 15px;
-}
-
-.technical-report-flow__report-price--mono {
-  color: #111;
-  font-size: 18px;
-}
-
-.technical-report-flow__report-value--mono {
-  color: #111;
-  font-size: clamp(32px, 2.2vw, 48px);
-}
-
-.technical-report-flow__progress--mono {
-  background: rgba(255, 255, 255, 0.35);
-}
-
-.technical-report-flow__progress-thumb--mono {
-  background: #fff;
+  transition: 0.25s ease;
 }
 
 .technical-report-flow__order-btn--mono {
-  min-width: 220px;
-  min-height: 58px;
   background: #000;
   color: #fff;
   border: 2px solid #000;
@@ -228,52 +212,103 @@
   box-shadow: 0 0 20px rgba(237, 243, 94, 0.35);
 }
 
+.technical-report-flow__back {
+  position: absolute;
+  top: 28px;
+  left: 26px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  font-size: 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: 0.25s ease;
+}
+
+.technical-report-flow__back--mono {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: #000;
+  color: #fff;
+}
+
+.technical-report-flow__back--mono:hover {
+  transform: translateY(-1px);
+  background: #edf35e;
+  color: #000;
+  border-color: #edf35e;
+  box-shadow: 0 0 20px rgba(237, 243, 94, 0.35);
+}
+
 @media (max-width: 768px) {
   .technical-report-flow {
     min-height: auto;
-    padding: 10px 0 18px;
+    padding: 12px 0 18px;
   }
 
   .technical-report-flow__card {
     min-height: auto;
-    padding: 16px 10px 18px;
   }
 
   .technical-report-flow__inner {
-    min-height: auto;
-    padding-top: 18px;
+    padding-top: 58px;
   }
 
   .technical-report-flow__title--mono {
-    margin-bottom: 16px;
     font-size: 34px;
+  }
+
+  .technical-report-flow__viewport {
+    margin-top: 4px;
+    margin-bottom: 22px;
   }
 
   .technical-report-flow__track {
-    gap: 18px;
+    gap: 16px;
+    padding: 6px 18px 16px;
   }
 
-  .technical-report-flow__report-card--mono {
-    flex: 0 0 270px;
-    min-height: 300px;
-    padding: 16px 14px 20px;
+  .technical-report-flow__report-card {
+    flex-basis: 245px;
+    height: 335px;
+    padding: 18px 15px;
   }
 
   .technical-report-flow__report-title--mono {
-    font-size: 21px;
+    font-size: 19px;
+  }
+
+  .technical-report-flow__report-note--mono {
+    font-size: 13px;
   }
 
   .technical-report-flow__report-value--mono {
-    font-size: 34px;
+    font-size: 30px;
   }
 
   .technical-report-flow__progress {
-    width: 170px;
+    width: 240px;
+    height: 16px;
+    margin-bottom: 22px;
   }
 
-  .technical-report-flow__order-btn--mono {
-    min-width: 170px;
-    min-height: 48px;
+  .technical-report-flow__progress-thumb {
+    height: 12px;
+  }
+
+  .technical-report-flow__order-btn {
+    min-width: 180px;
+    min-height: 50px;
     font-size: 17px;
+  }
+
+  .technical-report-flow__back {
+    top: 16px;
+    left: 18px;
+    width: 46px;
+    height: 46px;
+    font-size: 24px;
   }
 }

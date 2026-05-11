@@ -1,113 +1,95 @@
 .commissioning-flow {
   background: #000;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 92px);
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 14px 0;
 }
 
 .commissioning-flow__card {
   position: relative;
-  min-height: calc(100vh - 84px);
-  border-radius: 28px;
+  min-height: calc(100vh - 120px);
+  border-radius: 34px;
   overflow: hidden;
   background: #efefef;
-  padding: 22px 24px 24px;
+  padding: 26px 34px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .commissioning-flow__back {
   position: absolute;
   top: 28px;
   left: 28px;
-
+  z-index: 5;
   width: 56px;
   height: 48px;
-
   border: 1px solid rgba(237, 243, 94, 0.35);
   border-radius: 14px;
-
   background: rgba(0, 0, 0, 0.82);
   color: #fff;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 26px;
   font-weight: 600;
-
   cursor: pointer;
-
   backdrop-filter: blur(10px);
-
   box-shadow:
     0 10px 24px rgba(0, 0, 0, 0.28),
     0 0 18px rgba(237, 243, 94, 0.18);
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  transition: 0.25s ease;
 }
 
 .commissioning-flow__back:hover {
   background: #edf35e;
   color: #000;
-
   border-color: #edf35e;
-
   transform: translateY(-2px);
-
   box-shadow:
     0 14px 28px rgba(0, 0, 0, 0.32),
     0 0 30px rgba(237, 243, 94, 0.45);
 }
 
 .commissioning-flow__title {
-  margin: 0 0 22px;
-  padding-top: 18px;
+  margin: 0 0 28px;
   text-align: center;
   color: #111;
-  font-size: clamp(38px, 4.2vw, 74px);
-  line-height: 0.95;
-  font-weight: 500;
+  font-size: clamp(56px, 5.5vw, 96px);
+  line-height: 0.92;
+  font-weight: 400;
+  letter-spacing: -0.05em;
 }
 
 .commissioning-flow__text {
-  max-width: 900px;
-  margin: 0 auto 28px;
+  max-width: 1120px;
+  margin: 0 auto 34px;
   text-align: center;
-  color: #222;
-  font-size: clamp(14px, 1vw, 20px);
-  line-height: 1.2;
+  color: #1d1d1d;
+  font-size: clamp(16px, 1vw, 22px);
+  line-height: 1.35;
 }
 
 .commissioning-flow__actions {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
-  margin-top: 10px;
+  gap: 16px;
 }
 
 .commissioning-flow__choice {
-  min-width: 150px;
-  min-height: 48px;
-  padding: 0 24px;
-  border-radius: 14px;
+  min-width: 190px;
+  min-height: 62px;
+  padding: 0 30px;
+  border-radius: 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 500;
   text-decoration: none;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: 0.25s ease;
 }
 
 .commissioning-flow__choice--dark {
@@ -138,8 +120,6 @@
 }
 
 .commissioning-flow__card--prices {
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -147,34 +127,69 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(120px, 15vw, 250px);
+
+  font-size: clamp(420px, 38vw, 760px);
+
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.08);
+
   pointer-events: none;
   user-select: none;
-  letter-spacing: 4px;
+
+  letter-spacing: 18px;
   text-align: center;
+
+  transform: translateY(-10px);
 }
 
-/* БАЗА ДЛЯ ЦЕН */
+.commissioning-flow__watermark--region {
+  font-size: clamp(300px, 28vw, 560px);
+
+  letter-spacing: 4px;
+
+  transform:
+    translateY(-10px)
+    scaleX(0.72)
+    scaleY(1.18);
+}
+
+.commissioning-flow__watermark--building-region {
+  top: 52%;
+  left: 52%;
+  transform: translate(-50%, -50%) scaleX(0.52);
+}
+
 .commissioning-flow__prices {
   position: relative;
   z-index: 2;
 }
 
-/* ВВЕДЕННЯ В ЕКСПЛУАТАЦІЮ — 4 КАРТОЧКИ В ОДНУ ЛІНІЮ */
 .commissioning-flow__prices--commissioning {
+  position: relative;
+  z-index: 3;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
+  width: min(100%, 1380px);
+
+  margin: 0 auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
   gap: 0;
-  width: min(100%, 1550px);
-  margin: 90px auto 0;
 }
 
 .commissioning-flow__price-card--commissioning {
+   position: relative;
   min-height: 190px;
   padding: 18px 12px 20px;
   text-align: center;
@@ -183,6 +198,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.commissioning-flow__prices--region {
+  width: min(100%, 1180px);
 }
 
 .commissioning-flow__price-card--commissioning:last-child {
@@ -215,7 +234,6 @@
   color: #111;
 }
 
-/* БУДПАСПОРТ — 2 БОЛЬШИХ БЛОКА */
 .commissioning-flow__prices:not(.commissioning-flow__prices--commissioning) {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -255,92 +273,41 @@
 }
 
 .commissioning-flow__order-btn {
-  position: relative;
-  z-index: 2;
-  min-width: 200px;
-  min-height: 54px;
-  margin: 28px auto 0;
+  position: absolute;
+  left: 50%;
+  bottom: 42px;
+  transform: translateX(-50%);
+
+  z-index: 5;
+
+  min-width: 220px;
+  min-height: 58px;
+
   background: #000;
   color: #fff;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   text-decoration: none;
   font-size: 20px;
   font-weight: 600;
-  letter-spacing: 0.3px;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
+
+  border: none;
+  cursor: pointer;
+
+  transition: 0.25s ease;
 }
 
 .commissioning-flow__order-btn:hover {
-  transform: translateY(-2px);
+  background: #111;
+}
+
+.commissioning-flow__order-btn:hover {
   background: #edf35e;
   color: #000;
   box-shadow: 0 0 20px rgba(237, 243, 94, 0.28);
-}
-
-/* TECH PASSPORT */
-.tech-passport-compact {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-top: 84px;
-}
-
-.tech-passport-compact__card {
-  min-height: 360px;
-  padding: 18px 14px 18px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  text-align: center;
-}
-
-.tech-passport-compact__title {
-  min-height: 74px;
-  margin-bottom: 12px;
-  color: #111;
-  font-size: clamp(18px, 1.45vw, 28px);
-  line-height: 1.05;
-  font-weight: 700;
-}
-
-.tech-passport-compact__list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.tech-passport-compact__item {
-  padding: 14px 10px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.tech-passport-compact__label {
-  margin-bottom: 8px;
-  color: #333;
-  font-size: 14px;
-  line-height: 1.15;
-}
-
-.tech-passport-compact__value {
-  color: #111;
-  font-size: clamp(24px, 1.7vw, 34px);
-  line-height: 1;
-  font-weight: 500;
-}
-
-.commissioning-flow__card--prices .commissioning-flow__watermark {
-  color: rgba(0, 0, 0, 0.05);
 }
 
 .commissioning-flow__example {
@@ -359,10 +326,6 @@
 }
 
 @media (max-width: 1200px) {
-  .tech-passport-compact {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .commissioning-flow__prices--commissioning {
     grid-template-columns: repeat(2, 1fr);
     width: min(100%, 980px);
@@ -404,16 +367,18 @@
 
   .commissioning-flow__card {
     min-height: auto;
-    padding: 26px 14px 18px;
+    padding: 80px 16px 30px;
+    border-radius: 24px;
   }
 
   .commissioning-flow__title {
-    margin-bottom: 18px;
-    padding-top: 18px;
+    font-size: clamp(42px, 11vw, 58px);
+    margin-bottom: 20px;
   }
 
   .commissioning-flow__text {
-    margin-bottom: 22px;
+    margin-bottom: 24px;
+    font-size: 15px;
   }
 
   .commissioning-flow__actions {
@@ -422,7 +387,9 @@
 
   .commissioning-flow__choice {
     width: 100%;
-    max-width: 240px;
+    max-width: 280px;
+    min-height: 54px;
+    font-size: 18px;
   }
 
   .commissioning-flow__prices--commissioning,
@@ -462,23 +429,5 @@
     min-width: 170px;
     min-height: 48px;
     font-size: 17px;
-  }
-
-  .tech-passport-compact {
-    grid-template-columns: 1fr;
-    margin-top: 60px;
-  }
-
-  .tech-passport-compact__card {
-    min-height: auto;
-  }
-
-  .tech-passport-compact__title {
-    min-height: auto;
-    font-size: 24px;
-  }
-
-  .tech-passport-compact__value {
-    font-size: 22px;
   }
 }

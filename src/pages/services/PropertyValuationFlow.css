@@ -1,87 +1,90 @@
 .property-valuation-flow {
   background: #000;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 92px);
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 14px 0;
 }
 
 .property-valuation-flow__card {
   position: relative;
-  min-height: calc(100vh - 84px);
-  border-radius: 32px;
+  min-height: calc(100vh - 130px);
+  border-radius: 34px;
   overflow: hidden;
-  background: #000;
-  padding: 18px;
+  background: #efefef;
+  padding: 20px 28px 24px;
 }
 
 .property-valuation-flow__back {
   position: absolute;
-  top: 18px;
-  left: 18px;
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.04);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
+  top: 28px;
+  left: 28px;
   z-index: 5;
-  display: inline-flex;
+  width: 56px;
+  height: 48px;
+  border: 1px solid rgba(237, 243, 94, 0.35);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+  font-size: 26px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(237, 243, 94, 0.18);
+  transition: 0.25s ease;
 }
 
 .property-valuation-flow__back:hover {
-  transform: translateY(-1px);
-  background: #fff;
+  background: #edf35e;
   color: #000;
-  border-color: #fff;
+  border-color: #edf35e;
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.32),
+    0 0 30px rgba(237, 243, 94, 0.45);
 }
 
 .property-valuation-flow__inner {
-  position: relative;
-  z-index: 2;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 210px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 34px 80px 10px;
+  padding: 0 56px;
 }
 
 .property-valuation-flow__title {
-  color: #fff;
+  margin: 0 0 18px;
+  color: #111;
   text-align: center;
-  font-size: clamp(40px, 4vw, 78px);
-  line-height: 0.96;
-  margin: 0 0 22px;
+  font-size: clamp(40px, 4vw, 66px);
+  line-height: 0.95;
   font-weight: 400;
+  letter-spacing: -0.04em;
 }
 
 .property-valuation-flow__content {
-  width: min(100%, 1340px);
+  width: min(100%, 1320px);
   margin: 0 auto;
 }
 
 .property-valuation-flow__lead {
-  color: #fff;
-  font-size: clamp(24px, 1.8vw, 38px);
-  margin: 0 0 12px;
-  font-weight: 600;
+  margin: 0 0 10px;
+  color: #111;
+  font-size: clamp(20px, 1.5vw, 30px);
+  font-weight: 800;
 }
 
 .property-valuation-flow__list {
-  color: #fff;
-  font-size: clamp(20px, 1.5vw, 30px);
-  line-height: 1.34;
-  padding-left: 30px;
-  margin: 0 0 24px;
+  margin: 0 0 18px;
+  padding-left: 28px;
+  color: #111;
+  font-size: clamp(17px, 1.2vw, 23px);
+  line-height: 1.3;
   list-style: disc;
 }
 
@@ -90,62 +93,59 @@
 }
 
 .property-valuation-flow__list li::marker {
-  color: #fff;
+  color: #111;
 }
 
 .property-valuation-flow__price-box {
   width: 100%;
-  min-height: 150px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  min-height: 115px;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 .property-valuation-flow__price-label {
-  margin-bottom: 10px;
-  color: #fff;
-  font-size: clamp(24px, 2vw, 40px);
-  line-height: 1;
-  font-weight: 400;
-}
-
-.property-valuation-flow__price-value {
-  color: #fff;
-  font-size: clamp(42px, 3.4vw, 72px);
+  margin-bottom: 8px;
+  color: #111;
+  font-size: clamp(20px, 1.6vw, 30px);
   line-height: 1;
   font-weight: 500;
 }
 
+.property-valuation-flow__price-value {
+  color: #111;
+  font-size: clamp(36px, 2.8vw, 56px);
+  line-height: 1;
+  font-weight: 400;
+}
+
 .property-valuation-flow__order-btn {
+  width: fit-content;
+  min-width: 210px;
+  min-height: 54px;
+  margin: 0 auto;
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  min-width: 280px;
-  min-height: 64px;
-  border: 2px solid rgba(255, 255, 255, 0.72);
-  background: transparent;
+  border: none;
+  background: #000;
   color: #fff;
   text-decoration: none;
-  font-size: clamp(22px, 1.8vw, 34px);
+  font-size: clamp(18px, 1.3vw, 24px);
+  font-weight: 600;
   cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: 0.25s ease;
 }
 
 .property-valuation-flow__order-btn:hover {
   transform: translateY(-2px);
   background: #edf35e;
   color: #000;
-  border-color: #edf35e;
   box-shadow: 0 0 20px rgba(237, 243, 94, 0.35);
 }
 
@@ -157,47 +157,47 @@
 
   .property-valuation-flow__card {
     min-height: auto;
-    padding: 18px 12px 18px;
+    padding: 80px 16px 30px;
+    border-radius: 24px;
   }
 
   .property-valuation-flow__inner {
     min-height: auto;
-    padding: 44px 14px 0;
+    padding: 0;
   }
 
   .property-valuation-flow__title {
-    font-size: 34px;
-    margin-bottom: 16px;
+    font-size: 38px;
+    margin-bottom: 22px;
   }
 
   .property-valuation-flow__lead {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .property-valuation-flow__list {
     font-size: 16px;
     line-height: 1.35;
-    padding-left: 20px;
-    margin-bottom: 18px;
+    padding-left: 22px;
+    margin-bottom: 20px;
   }
 
   .property-valuation-flow__price-box {
-    min-height: 110px;
-    margin-bottom: 16px;
+    min-height: 120px;
+    margin-bottom: 18px;
   }
 
   .property-valuation-flow__price-label {
-    font-size: 18px;
-    margin-bottom: 8px;
+    font-size: 20px;
   }
 
   .property-valuation-flow__price-value {
-    font-size: 34px;
+    font-size: 36px;
   }
 
   .property-valuation-flow__order-btn {
-    min-width: 200px;
+    min-width: 190px;
     min-height: 52px;
-    font-size: 20px;
+    font-size: 19px;
   }
 }

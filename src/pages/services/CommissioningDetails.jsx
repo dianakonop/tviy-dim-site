@@ -4,6 +4,21 @@ import './CommissioningFlow.css'
 function CommissioningDetails() {
   const navigate = useNavigate()
 
+  const goBackToServices = () => {
+    navigate('/')
+
+    setTimeout(() => {
+      const services = document.getElementById('services-block')
+
+      if (services) {
+        services.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+      }
+    }, 300)
+  }
+
   return (
     <section className="commissioning-flow">
       <div className="container">
@@ -11,24 +26,22 @@ function CommissioningDetails() {
           <button
             type="button"
             className="commissioning-flow__back"
-            onClick={() => navigate('/?service=commissioning')}
-            aria-label="Назад"
+            onClick={goBackToServices}
+            aria-label="Назад до послуг"
           >
             ←
           </button>
 
           <h1 className="commissioning-flow__title">
-            ВВЕДЕННЯ В
-            <br />
-            ЕКСПЛУАТАЦІЮ
+            ВВЕДЕННЯ В ЕКСПЛУАТАЦІЮ
           </h1>
 
           <p className="commissioning-flow__text">
-            Маючи багаторічний досвід у введенні об&apos;єктів в експлуатацію
+            Маючи багаторічний досвід у введенні об&apos;єктів в експлуатацію,
             ми добре знаємо всі тонкощі цього процесу та вміємо оформити
             необхідні документи у стислі терміни. Введення об&apos;єкта в
-            експлуатацію — не складне та часто затратне питання, що передбачає
-            отримання численних погоджень і дозвільних документів.
+            експлуатацію передбачає отримання погоджень і дозвільних
+            документів.
           </p>
 
           <div className="commissioning-flow__actions">

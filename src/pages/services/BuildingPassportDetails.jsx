@@ -9,13 +9,26 @@ function BuildingPassportDetails() {
       <div className="container">
         <div className="commissioning-flow__card">
           <button
-            type="button"
-            className="commissioning-flow__back"
-            onClick={() => navigate('/?service=building-passport')}
-            aria-label="Назад"
-          >
-            ←
-          </button>
+  type="button"
+  className="commissioning-flow__back"
+  onClick={() => {
+    navigate('/')
+
+    setTimeout(() => {
+      const services = document.getElementById('services-block')
+
+      if (services) {
+        services.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+      }
+    }, 300)
+  }}
+  aria-label="Назад"
+>
+  ←
+</button>
 
           <h1 className="commissioning-flow__title">
             Проєктування,Будівельний
@@ -54,14 +67,7 @@ function BuildingPassportDetails() {
             </Link>
           </div>
 
-          <a
-            href="/documents/proektuvannya.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="commissioning-flow__example"
-          >
-            Приклад документа
-          </a>
+          
         </div>
       </div>
     </section>
