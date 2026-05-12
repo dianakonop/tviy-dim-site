@@ -3,13 +3,13 @@
   top: 0;
   z-index: 1000;
 
-  background: rgba(0, 0, 0, 0.96);
-  backdrop-filter: blur(10px);
-
   height: 82px;
 
   display: flex;
   align-items: center;
+
+  background: rgba(0, 0, 0, 0.96);
+  backdrop-filter: blur(10px);
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -22,18 +22,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 34px;
 }
 
 /* LOGO */
 
 .header__logo {
+  min-width: 320px;
+
   display: flex;
   align-items: center;
   gap: 14px;
-
-  min-width: 320px;
 
   text-decoration: none;
 }
@@ -43,19 +42,18 @@
   height: 54px;
 
   object-fit: contain;
-
   border-radius: 50%;
 
-  box-shadow:
-    0 0 18px rgba(237, 243, 94, 0.18);
+  box-shadow: 0 0 18px rgba(237, 243, 94, 0.18);
 }
 
 .header__logo-text {
-  color: #ffffff;
+  color: #fff;
 
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 34px;
-  font-weight: 500;
-  letter-spacing: 0.4px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
 
   white-space: nowrap;
 
@@ -80,7 +78,6 @@
 .header__menu {
   display: flex;
   align-items: center;
-
   gap: 74px;
 }
 
@@ -92,19 +89,38 @@
 
 .header__menu-link,
 .header__menu-link:visited {
+  position: relative;
+
   color: #f2f2f2;
 
-  font-size: 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
   font-weight: 500;
 
-  text-transform: lowercase;
+  text-transform: uppercase;
   text-decoration: none;
-
-  letter-spacing: 0.4px;
+  letter-spacing: 0.18em;
 
   transition:
     color 0.25s ease,
     transform 0.25s ease;
+}
+
+.header__menu-link::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+
+  width: 0;
+  height: 2px;
+
+  background: #edf35e;
+  box-shadow: 0 0 14px rgba(237, 243, 94, 0.8);
+
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
 }
 
 .header__menu-link:hover {
@@ -112,14 +128,18 @@
   transform: translateY(-1px);
 }
 
+.header__menu-link:hover::after {
+  width: 34px;
+}
+
 /* ARROW */
 
 .header__arrow {
+  margin-left: 5px;
+
   color: #d8d8d8;
 
-  font-size: 17px;
-
-  margin-left: 4px;
+  font-size: 16px;
 
   transition: color 0.25s ease;
 }
@@ -129,51 +149,45 @@
   color: #edf35e;
 }
 
-/* invisible hover zone */
+/* DROPDOWN HOVER ZONE */
 
 .header__menu-item--dropdown::after {
   content: "";
 
   position: absolute;
-
-  left: 50%;
-  transform: translateX(-50%);
-
   top: 100%;
+  left: 50%;
 
   width: 320px;
   height: 18px;
+
+  transform: translateX(-50%);
 }
 
 /* DROPDOWN */
 
 .header__submenu {
   position: absolute;
-
   top: calc(100% + 8px);
   left: 50%;
-
-  transform: translateX(-50%) translateY(10px);
+  z-index: 1001;
 
   width: 340px;
 
-  background: rgba(50, 50, 50, 0.9);
+  overflow: hidden;
 
+  background: rgba(50, 50, 50, 0.9);
   backdrop-filter: blur(14px);
 
   border: 1px solid rgba(255, 255, 255, 0.18);
-
   border-radius: 20px;
-
-  overflow: hidden;
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 
+  transform: translateX(-50%) translateY(10px);
   transition: all 0.25s ease;
-
-  z-index: 1001;
 
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.45),
@@ -196,14 +210,14 @@
 
   padding: 16px 18px;
 
+  color: #fff;
+
   text-align: center;
-
-  font-size: 18px;
-  font-weight: 400;
-
-  color: #ffffff;
-
   text-decoration: none;
+
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -227,9 +241,8 @@
   min-width: 190px;
 
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-
+  justify-content: flex-end;
   gap: 14px;
 }
 
@@ -237,13 +250,13 @@
   width: 42px;
   height: 42px;
 
-  border-radius: 12px;
-
-  overflow: hidden;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 12px;
 
   transition:
     transform 0.25s ease,
@@ -253,16 +266,13 @@
 
 .header__social-link:hover {
   transform: translateY(-2px) scale(1.05);
-
   filter: brightness(1.1);
 
-  box-shadow:
-    0 0 18px rgba(237, 243, 94, 0.25);
+  box-shadow: 0 0 18px rgba(237, 243, 94, 0.25);
 }
 
 .header__social-link img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }

@@ -9,53 +9,76 @@
 .commissioning-flow__card {
   position: relative;
   min-height: calc(100vh - 120px);
+  padding: 26px 34px 34px;
   border-radius: 34px;
   overflow: hidden;
   background: #efefef;
-  padding: 26px 34px 34px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+.commissioning-flow__card--prices {
+  justify-content: space-between;
+}
+
+/* ===================================================== */
+/* BACK BUTTON */
+/* ===================================================== */
 
 .commissioning-flow__back {
   position: absolute;
   top: 28px;
   left: 28px;
   z-index: 5;
+
   width: 56px;
   height: 48px;
-  border: 1px solid rgba(237, 243, 94, 0.35);
-  border-radius: 14px;
-  background: rgba(0, 0, 0, 0.82);
-  color: #fff;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-size: 26px;
   font-weight: 600;
-  cursor: pointer;
+  color: #fff;
+
+  border-radius: 14px;
+  border: 1px solid rgba(237, 243, 94, 0.35);
+
+  background: rgba(0, 0, 0, 0.82);
   backdrop-filter: blur(10px);
+
+  cursor: pointer;
+  transition: 0.25s ease;
+
   box-shadow:
     0 10px 24px rgba(0, 0, 0, 0.28),
     0 0 18px rgba(237, 243, 94, 0.18);
-  transition: 0.25s ease;
 }
 
 .commissioning-flow__back:hover {
   background: #edf35e;
-  color: #000;
   border-color: #edf35e;
+  color: #000;
   transform: translateY(-2px);
+
   box-shadow:
     0 14px 28px rgba(0, 0, 0, 0.32),
     0 0 30px rgba(237, 243, 94, 0.45);
 }
 
+/* ===================================================== */
+/* TEXT */
+/* ===================================================== */
+
 .commissioning-flow__title {
   margin: 0 0 28px;
+
   text-align: center;
   color: #111;
+
   font-size: clamp(56px, 5.5vw, 96px);
   line-height: 0.92;
   font-weight: 400;
@@ -65,16 +88,22 @@
 .commissioning-flow__text {
   max-width: 1120px;
   margin: 0 auto 34px;
+
   text-align: center;
   color: #1d1d1d;
+
   font-size: clamp(16px, 1vw, 22px);
   line-height: 1.35;
 }
 
+/* ===================================================== */
+/* ACTION BUTTONS */
+/* ===================================================== */
+
 .commissioning-flow__actions {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -82,46 +111,53 @@
   min-width: 190px;
   min-height: 62px;
   padding: 0 30px;
-  border-radius: 18px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  border-radius: 18px;
+
+  text-decoration: none;
   font-size: 22px;
   font-weight: 500;
-  text-decoration: none;
+
   transition: 0.25s ease;
 }
 
 .commissioning-flow__choice--dark {
   background: #000;
-  color: #fff;
   border: 2px solid #000;
+  color: #fff;
 }
 
 .commissioning-flow__choice--dark:hover {
-  transform: translateY(-2px);
   background: #edf35e;
   border-color: #edf35e;
   color: #000;
+
+  transform: translateY(-2px);
+
   box-shadow: 0 0 18px rgba(237, 243, 94, 0.25);
 }
 
 .commissioning-flow__choice--light {
   background: #fff;
-  color: #111;
   border: 2px solid rgba(0, 0, 0, 0.22);
+  color: #111;
 }
 
 .commissioning-flow__choice--light:hover {
-  transform: translateY(-2px);
   background: #111;
-  color: #fff;
   border-color: #111;
+  color: #fff;
+
+  transform: translateY(-2px);
 }
 
-.commissioning-flow__card--prices {
-  justify-content: space-between;
-}
+/* ===================================================== */
+/* WATERMARK */
+/* ===================================================== */
 
 .commissioning-flow__watermark {
   position: absolute;
@@ -133,22 +169,20 @@
   justify-content: center;
 
   font-size: clamp(420px, 38vw, 760px);
-
   font-weight: 700;
+  letter-spacing: 18px;
+  text-align: center;
+
   color: rgba(0, 0, 0, 0.08);
 
   pointer-events: none;
   user-select: none;
-
-  letter-spacing: 18px;
-  text-align: center;
 
   transform: translateY(-10px);
 }
 
 .commissioning-flow__watermark--region {
   font-size: clamp(300px, 28vw, 560px);
-
   letter-spacing: 4px;
 
   transform:
@@ -160,8 +194,13 @@
 .commissioning-flow__watermark--building-region {
   top: 52%;
   left: 52%;
+
   transform: translate(-50%, -50%) scaleX(0.52);
 }
+
+/* ===================================================== */
+/* PRICES */
+/* ===================================================== */
 
 .commissioning-flow__prices {
   position: relative;
@@ -169,155 +208,181 @@
 }
 
 .commissioning-flow__prices--commissioning {
-  position: relative;
-  z-index: 3;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  width: min(100%, 1380px);
-
-  margin: 0 auto;
-
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 3;
+
+  width: min(100%, 1380px);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+
+  margin: 0 auto;
 
   transform: translate(-50%, -50%);
-
-  gap: 0;
-}
-
-.commissioning-flow__price-card--commissioning {
-   position: relative;
-  min-height: 190px;
-  padding: 18px 12px 20px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.86);
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .commissioning-flow__prices--region {
   width: min(100%, 1180px);
 }
 
+.commissioning-flow__prices:not(.commissioning-flow__prices--commissioning) {
+  width: min(100%, 1260px);
+  margin: 110px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+}
+
+/* ===================================================== */
+/* PRICE CARDS */
+/* ===================================================== */
+
+.commissioning-flow__price-card,
+.commissioning-flow__price-card--commissioning {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.commissioning-flow__price-card {
+  min-height: 255px;
+  padding: 26px 18px 28px;
+}
+
+.commissioning-flow__price-card--commissioning {
+  min-height: 190px;
+  padding: 18px 12px 20px;
+
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.commissioning-flow__price-card:last-child,
 .commissioning-flow__price-card--commissioning:last-child {
   border-right: none;
 }
 
+/* ===================================================== */
+/* PRICE TEXT */
+/* ===================================================== */
+
+.commissioning-flow__price-title {
+  min-height: 88px;
+
+  margin-bottom: 10px;
+
+  color: #111;
+
+  font-size: clamp(24px, 1.6vw, 34px);
+  line-height: 1.1;
+}
+
 .commissioning-flow__price-title--small {
   min-height: 54px;
+
+  color: #111;
+
   font-size: clamp(14px, 1vw, 20px);
   line-height: 1.1;
-  color: #111;
 }
 
 .commissioning-flow__price-note {
   min-height: 24px;
+  margin: 6px 0 8px;
+
   color: #444;
+
   font-size: 11px;
   line-height: 1.15;
-  margin: 6px 0 8px;
 }
 
 .commissioning-flow__price-note--empty {
   visibility: hidden;
 }
 
-.commissioning-flow__price-value--small {
-  font-size: clamp(22px, 1.8vw, 38px);
-  line-height: 1;
-  font-weight: 500;
-  color: #111;
-}
-
-.commissioning-flow__prices:not(.commissioning-flow__prices--commissioning) {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0;
-  width: min(100%, 1260px);
-  margin: 110px auto 0;
-}
-
-.commissioning-flow__price-card {
-  min-height: 255px;
-  padding: 26px 18px 28px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.82);
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.commissioning-flow__price-card:last-child {
-  border-right: none;
-}
-
-.commissioning-flow__price-title {
-  min-height: 88px;
-  color: #111;
-  font-size: clamp(24px, 1.6vw, 34px);
-  line-height: 1.1;
-  margin-bottom: 10px;
-}
-
 .commissioning-flow__price-value {
   color: #111;
+
   font-size: clamp(34px, 2.8vw, 58px);
   line-height: 1;
   font-weight: 500;
 }
 
+.commissioning-flow__price-value--small {
+  color: #111;
+
+  font-size: clamp(22px, 1.8vw, 38px);
+  line-height: 1;
+  font-weight: 500;
+}
+
+/* ===================================================== */
+/* ORDER BUTTON */
+/* ===================================================== */
+
 .commissioning-flow__order-btn {
   position: absolute;
   left: 50%;
   bottom: 42px;
-  transform: translateX(-50%);
-
   z-index: 5;
 
   min-width: 220px;
   min-height: 58px;
 
-  background: #000;
-  color: #fff;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  background: #000;
+  color: #fff;
+
+  border: none;
 
   text-decoration: none;
   font-size: 20px;
   font-weight: 600;
 
-  border: none;
   cursor: pointer;
-
   transition: 0.25s ease;
-}
 
-.commissioning-flow__order-btn:hover {
-  background: #111;
+  transform: translateX(-50%);
 }
 
 .commissioning-flow__order-btn:hover {
   background: #edf35e;
   color: #000;
+
   box-shadow: 0 0 20px rgba(237, 243, 94, 0.28);
 }
 
+/* ===================================================== */
+/* EXAMPLE LINK */
+/* ===================================================== */
+
 .commissioning-flow__example {
   display: block;
+
   margin-top: 18px;
+
   color: #9c9c9c;
-  font-size: 15px;
+
   text-align: center;
   text-decoration: underline;
   text-underline-offset: 4px;
+
+  font-size: 15px;
+
   transition: 0.2s ease;
 }
 
@@ -325,10 +390,14 @@
   color: #000;
 }
 
+/* ===================================================== */
+/* TABLET */
+/* ===================================================== */
+
 @media (max-width: 1200px) {
   .commissioning-flow__prices--commissioning {
-    grid-template-columns: repeat(2, 1fr);
     width: min(100%, 980px);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .commissioning-flow__prices:not(.commissioning-flow__prices--commissioning) {
@@ -340,24 +409,9 @@
   }
 }
 
-@media (max-width: 900px) {
-  .commissioning-flow__prices--commissioning,
-  .commissioning-flow__prices:not(.commissioning-flow__prices--commissioning) {
-    grid-template-columns: 1fr;
-    margin-top: 80px;
-  }
-
-  .commissioning-flow__price-card,
-  .commissioning-flow__price-card--commissioning {
-    border-right: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .commissioning-flow__price-card:last-child,
-  .commissioning-flow__price-card--commissioning:last-child {
-    border-bottom: none;
-  }
-}
+/* ===================================================== */
+/* MOBILE */
+/* ===================================================== */
 
 @media (max-width: 768px) {
   .commissioning-flow {
@@ -367,17 +421,32 @@
 
   .commissioning-flow__card {
     min-height: auto;
-    padding: 80px 16px 30px;
+    padding: 72px 14px 110px;
+
     border-radius: 24px;
+
+    overflow: visible;
+    justify-content: flex-start;
   }
 
   .commissioning-flow__title {
-    font-size: clamp(42px, 11vw, 58px);
-    margin-bottom: 20px;
+    max-width: 100%;
+    margin-bottom: 18px;
+
+    text-align: center;
+
+    font-size: clamp(24px, 7vw, 40px);
+    line-height: 1.08;
+
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .commissioning-flow__text {
+    max-width: 100%;
     margin-bottom: 24px;
+
     font-size: 15px;
   }
 
@@ -388,37 +457,58 @@
   .commissioning-flow__choice {
     width: 100%;
     max-width: 280px;
+
     min-height: 54px;
+
     font-size: 18px;
   }
 
+  /* PRICE TABLES */
+
   .commissioning-flow__prices--commissioning,
   .commissioning-flow__prices:not(.commissioning-flow__prices--commissioning) {
-    margin-top: 64px;
+    position: relative;
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+
+    transform: none;
   }
 
-  .commissioning-flow__price-card {
-    min-height: 200px;
-    padding: 20px 14px;
-  }
-
+  .commissioning-flow__price-card,
   .commissioning-flow__price-card--commissioning {
-    min-height: 170px;
-    padding: 16px 12px;
+    min-height: auto;
+
+    padding: 22px 14px;
+
+    border-right: none;
+    border-bottom: none;
+    border-radius: 18px;
   }
 
   .commissioning-flow__price-title {
     min-height: auto;
+
+    margin-bottom: 18px;
+
     font-size: 20px;
+    line-height: 1.15;
   }
 
   .commissioning-flow__price-title--small {
     min-height: auto;
+
     font-size: 16px;
   }
 
   .commissioning-flow__price-value {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .commissioning-flow__price-value--small {
@@ -426,8 +516,17 @@
   }
 
   .commissioning-flow__order-btn {
+    position: relative;
+    left: auto;
+    bottom: auto;
+
     min-width: 170px;
     min-height: 48px;
+
+    margin: 24px auto 0;
+
     font-size: 17px;
+
+    transform: none;
   }
 }

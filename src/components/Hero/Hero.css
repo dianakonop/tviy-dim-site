@@ -308,3 +308,36 @@
   50% { transform: translate(-25px, 20px) scale(1.12); }
   100% { transform: translate(-5px, 10px) scale(1.05); }
 }
+
+/* MOBILE: фото над текстом, ноут не трогаем */
+@media (max-width: 768px) {
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__right {
+    display: contents;
+  }
+
+  .hero__image-wrap {
+    order: 1;
+    width: 100%;
+  }
+
+  .hero__content {
+    order: 2;
+  }
+
+  .hero__stats {
+    order: 3;
+    width: 100%;
+  }
+
+  .hero__image {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: cover;
+  }
+}
