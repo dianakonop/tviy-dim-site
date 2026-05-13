@@ -68,6 +68,8 @@ const reportItems = [
 function TechnicalReportPrices() {
   const navigate = useNavigate()
   const trackRef = useRef(null)
+  const progressRef = useRef(null)
+
   const [progress, setProgress] = useState(0)
 
   const goBackToServices = () => {
@@ -98,6 +100,39 @@ function TechnicalReportPrices() {
         })
       }
     }, 300)
+  }
+
+  const scrollByProgressPosition = (clientX) => {
+    const track = trackRef.current
+    const progressBar = progressRef.current
+
+    if (!track || !progressBar) return
+
+    const rect = progressBar.getBoundingClientRect()
+    const x = clientX - rect.left
+    const percent = Math.min(Math.max(x / rect.width, 0), 1)
+
+    const maxScroll = track.scrollWidth - track.clientWidth
+
+    track.scrollLeft = maxScroll * percent
+  }
+
+  const handleProgressPointerDown = (e) => {
+    e.preventDefault()
+
+    scrollByProgressPosition(e.clientX)
+
+    const handleMove = (moveEvent) => {
+      scrollByProgressPosition(moveEvent.clientX)
+    }
+
+    const handleUp = () => {
+      window.removeEventListener('pointermove', handleMove)
+      window.removeEventListener('pointerup', handleUp)
+    }
+
+    window.addEventListener('pointermove', handleMove)
+    window.addEventListener('pointerup', handleUp)
   }
 
   useEffect(() => {
@@ -182,7 +217,11 @@ function TechnicalReportPrices() {
               </div>
             </div>
 
-            <div className="technical-report-flow__progress technical-report-flow__progress--mono">
+            <div
+              className="technical-report-flow__progress technical-report-flow__progress--mono"
+              ref={progressRef}
+              onPointerDown={handleProgressPointerDown}
+            >
               <div
                 className="technical-report-flow__progress-thumb technical-report-flow__progress-thumb--mono"
                 style={{ left: `${progress}%` }}

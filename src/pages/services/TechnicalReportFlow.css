@@ -135,6 +135,8 @@
   border-radius: 999px;
   margin-bottom: 28px;
   overflow: hidden;
+  cursor: pointer;
+  touch-action: none;
 }
 
 .technical-report-flow__progress--mono {
@@ -152,8 +154,13 @@
   width: 38%;
   height: 14px;
   border-radius: 999px;
+  cursor: grab;
   transform: translateX(-50%);
   transition: left 0.15s linear;
+}
+
+.technical-report-flow__progress-thumb:active {
+  cursor: grabbing;
 }
 
 .technical-report-flow__progress-thumb--mono {
