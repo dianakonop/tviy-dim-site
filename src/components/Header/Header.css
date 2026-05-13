@@ -363,12 +363,25 @@
     padding: 18px 16px;
   }
 
-  /* MENU CLICK OPEN */
+ 
+}
+
+/* MENU CLICK OPEN */
 
 .header__menu-button {
   background: transparent;
   border: none;
   cursor: pointer;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
 }
 
 .header__menu-item--open .header__submenu {
@@ -377,5 +390,4 @@
   pointer-events: auto;
 
   transform: translateX(-50%) translateY(0);
-}
 }
