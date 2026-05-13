@@ -6,24 +6,31 @@ function Header() {
   const navigate = useNavigate()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+
+    if (!element) return
+
+    const headerHeight = document.querySelector('.header')?.offsetHeight || 0
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY
+
+    window.scrollTo({
+      top: elementPosition - headerHeight,
+      behavior: 'smooth',
+    })
+  }
+
   const goToSection = (e, sectionId) => {
     e.preventDefault()
     setMobileMenuOpen(false)
 
     navigate('/', {
-      state: { scrollTo: sectionId },
+      state: null,
     })
 
     setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'instant',
-      })
-
-      document.getElementById(sectionId)?.scrollIntoView({
-        behavior: 'smooth',
-      })
-    }, 120)
+      scrollToSection(sectionId)
+    }, 150)
   }
 
   const goToHero = (e) => {
@@ -31,15 +38,16 @@ function Header() {
     setMobileMenuOpen(false)
 
     navigate('/', {
-      state: { scrollTo: 'hero' },
+      state: null,
     })
 
     setTimeout(() => {
       window.scrollTo({
         top: 0,
-        behavior: 'instant',
+        left: 0,
+        behavior: 'smooth',
       })
-    }, 120)
+    }, 150)
   }
 
   const closeMenu = () => {
