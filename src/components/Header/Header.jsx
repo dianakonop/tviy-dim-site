@@ -4,12 +4,10 @@ import './Header.css'
 
 function Header() {
   const navigate = useNavigate()
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const goToSection = (e, sectionId) => {
     e.preventDefault()
-
     setMobileMenuOpen(false)
 
     navigate('/', {
@@ -19,7 +17,6 @@ function Header() {
 
   const goToHero = (e) => {
     e.preventDefault()
-
     setMobileMenuOpen(false)
 
     navigate('/', {
@@ -41,9 +38,7 @@ function Header() {
             className="header__logo-img"
           />
 
-          <span className="header__logo-text">
-            ТОВ "ТВІЙ ДІМ"
-          </span>
+          <span className="header__logo-text">ТОВ "ТВІЙ ДІМ"</span>
         </Link>
 
         <nav className="header__nav">
@@ -53,68 +48,56 @@ function Header() {
                 mobileMenuOpen ? 'header__menu-item--open' : ''
               }`}
             >
-              <button
-                type="button"
-                className="header__menu-link header__menu-button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              <a
+                href="/#services-block"
+                className="header__menu-link"
+                onClick={(e) => goToSection(e, 'services-block')}
               >
                 послуги
-                <span className="header__arrow">
-                  {mobileMenuOpen ? '▲' : '∨'}
-                </span>
+              </a>
+
+              <button
+                type="button"
+                className="header__arrow-button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Відкрити меню послуг"
+              >
+                {mobileMenuOpen ? '▲' : '∨'}
               </button>
 
               <ul className="header__submenu">
                 <li>
-                  <Link
-                    to="/services/tech-passport/prices"
-                    onClick={closeMenu}
-                  >
+                  <Link to="/services/tech-passport/prices" onClick={closeMenu}>
                     Технічний паспорт
                   </Link>
                 </li>
 
                 <li>
-                  <Link
-                    to="/services/commissioning"
-                    onClick={closeMenu}
-                  >
+                  <Link to="/services/commissioning" onClick={closeMenu}>
                     Введення в експлуатацію
                   </Link>
                 </li>
 
                 <li>
-                  <Link
-                    to="/services/property-valuation"
-                    onClick={closeMenu}
-                  >
+                  <Link to="/services/property-valuation" onClick={closeMenu}>
                     Оцінка нерухомого майна
                   </Link>
                 </li>
 
                 <li>
-                  <Link
-                    to="/services/building-passport"
-                    onClick={closeMenu}
-                  >
+                  <Link to="/services/building-passport" onClick={closeMenu}>
                     Проєктування, Будівельний паспорт
                   </Link>
                 </li>
 
                 <li>
-                  <Link
-                    to="/services/technical-report/prices"
-                    onClick={closeMenu}
-                  >
+                  <Link to="/services/technical-report/prices" onClick={closeMenu}>
                     Технічний звіт
                   </Link>
                 </li>
 
                 <li>
-                  <Link
-                    to="/services/ownership-rights"
-                    onClick={closeMenu}
-                  >
+                  <Link to="/services/ownership-rights" onClick={closeMenu}>
                     Отримання прав власності
                   </Link>
                 </li>
