@@ -31,10 +31,12 @@ function BuildingPassportDetails() {
 </button>
 
           <h1 className="commissioning-flow__title">
-            Проєктування,Будівельний
-            <br />
-            паспорт,Містобудівні умови
-          </h1>
+  Проєктування,
+  <br />
+  Будівельний паспорт,
+  <br />
+  Містобудівні умови
+</h1>
 
           <p className="commissioning-flow__text">
             Під час воєнного стану будівництво індивідуальних житлових, садових,
