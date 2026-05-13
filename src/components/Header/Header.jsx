@@ -13,6 +13,17 @@ function Header() {
     navigate('/', {
       state: { scrollTo: sectionId },
     })
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant',
+      })
+
+      document.getElementById(sectionId)?.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }, 120)
   }
 
   const goToHero = (e) => {
@@ -22,6 +33,13 @@ function Header() {
     navigate('/', {
       state: { scrollTo: 'hero' },
     })
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant',
+      })
+    }, 120)
   }
 
   const closeMenu = () => {
