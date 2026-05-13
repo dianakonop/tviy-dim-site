@@ -1,11 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import './Header.css'
 
 function Header() {
   const navigate = useNavigate()
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   const goToSection = (e, sectionId) => {
     e.preventDefault()
+
+    setMobileMenuOpen(false)
 
     navigate('/', {
       state: { scrollTo: sectionId },
@@ -15,9 +20,15 @@ function Header() {
   const goToHero = (e) => {
     e.preventDefault()
 
+    setMobileMenuOpen(false)
+
     navigate('/', {
       state: { scrollTo: 'hero' },
     })
+  }
+
+  const closeMenu = () => {
+    setMobileMenuOpen(false)
   }
 
   return (
@@ -29,43 +40,83 @@ function Header() {
             alt='Логотип "Твій Дім"'
             className="header__logo-img"
           />
-          <span className="header__logo-text">ТОВ "ТВІЙ ДІМ"</span>
+
+          <span className="header__logo-text">
+            ТОВ "ТВІЙ ДІМ"
+          </span>
         </Link>
 
         <nav className="header__nav">
           <ul className="header__menu">
-            <li className="header__menu-item header__menu-item--dropdown">
-              <a
-                href="/#services-block"
-                className="header__menu-link"
-                onClick={(e) => goToSection(e, 'services-block')}
+            <li
+              className={`header__menu-item header__menu-item--dropdown ${
+                mobileMenuOpen ? 'header__menu-item--open' : ''
+              }`}
+            >
+              <button
+                type="button"
+                className="header__menu-link header__menu-button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                послуги <span className="header__arrow">∨</span>
-              </a>
+                послуги
+                <span className="header__arrow">
+                  {mobileMenuOpen ? '▲' : '∨'}
+                </span>
+              </button>
 
               <ul className="header__submenu">
                 <li>
-                  <Link to="/services/tech-passport/prices">Технічний паспорт</Link>
+                  <Link
+                    to="/services/tech-passport/prices"
+                    onClick={closeMenu}
+                  >
+                    Технічний паспорт
+                  </Link>
                 </li>
 
                 <li>
-                  <Link to="/services/commissioning">Введення в експлуатацію</Link>
+                  <Link
+                    to="/services/commissioning"
+                    onClick={closeMenu}
+                  >
+                    Введення в експлуатацію
+                  </Link>
                 </li>
 
                 <li>
-                  <Link to="/services/property-valuation">Оцінка нерухомого майна</Link>
+                  <Link
+                    to="/services/property-valuation"
+                    onClick={closeMenu}
+                  >
+                    Оцінка нерухомого майна
+                  </Link>
                 </li>
 
                 <li>
-                  <Link to="/services/building-passport">Проєктування, Будівельний паспорт</Link>
+                  <Link
+                    to="/services/building-passport"
+                    onClick={closeMenu}
+                  >
+                    Проєктування, Будівельний паспорт
+                  </Link>
                 </li>
 
                 <li>
-                  <Link to="/services/technical-report/prices">Технічний звіт</Link>
+                  <Link
+                    to="/services/technical-report/prices"
+                    onClick={closeMenu}
+                  >
+                    Технічний звіт
+                  </Link>
                 </li>
 
                 <li>
-                  <Link to="/services/ownership-rights">Отримання прав власності</Link>
+                  <Link
+                    to="/services/ownership-rights"
+                    onClick={closeMenu}
+                  >
+                    Отримання прав власності
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -93,13 +144,27 @@ function Header() {
         </nav>
 
         <div className="header__socials">
-          <a href="https://t.me/+380679046488" className="header__social-link" aria-label="Telegram">
+          <a
+            href="https://t.me/+380679046488"
+            className="header__social-link"
+            aria-label="Telegram"
+          >
             <img src="/images/icons/telegram.png" alt="Telegram" />
           </a>
-          <a href="viber://chat?number=%2B380679046488" className="header__social-link" aria-label="Viber">
+
+          <a
+            href="viber://chat?number=%2B380679046488"
+            className="header__social-link"
+            aria-label="Viber"
+          >
             <img src="/images/icons/viber.png" alt="Viber" />
           </a>
-          <a href="tel:+380679046488" className="header__social-link" aria-label="Phone">
+
+          <a
+            href="tel:+380679046488"
+            className="header__social-link"
+            aria-label="Phone"
+          >
             <img src="/images/icons/phone.webp" alt="Phone" />
           </a>
         </div>

@@ -362,4 +362,20 @@
     font-size: 18px;
     padding: 18px 16px;
   }
+
+  /* MENU CLICK OPEN */
+
+.header__menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header__menu-item--open .header__submenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateX(-50%) translateY(0);
+}
 }
