@@ -65,6 +65,21 @@ const reportItems = [
   },
 ]
 
+const exampleDocuments = [
+  {
+    name: 'Звіт обстеження об’єктів класу СС1',
+    file: '/documents/example-report-3.pdf',
+  },
+  {
+    name: 'Звіт щодо доступності для осіб з інвалідністю',
+    file: '/documents/example-report-2.pdf',
+  },
+  {
+    name: ' Звіт про проведення технічного огляду',
+    file: '/documents/example-report-1.pdf',
+  },
+]
+
 function TechnicalReportPrices() {
   const navigate = useNavigate()
   const trackRef = useRef(null)
@@ -177,6 +192,26 @@ function TechnicalReportPrices() {
             <h1 className="technical-report-flow__title technical-report-flow__title--mono">
               Технічний звіт
             </h1>
+
+            <div className="technical-report-flow__docs-dropdown">
+  <span className="technical-report-flow__docs-trigger">
+    Приклад документів
+  </span>
+
+  <div className="technical-report-flow__docs-menu">
+    {exampleDocuments.map((doc, index) => (
+      <a
+        key={index}
+        href={doc.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="technical-report-flow__docs-link"
+      >
+        {doc.name}
+      </a>
+    ))}
+  </div>
+</div>
 
             <div className="technical-report-flow__viewport">
               <div className="technical-report-flow__track" ref={trackRef}>

@@ -1,6 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './CommissioningFlow.css'
 
+const commissioningExampleDocuments = [
+  {
+    name: 'Приклад введення в експлуатацію',
+    file: '/documents/commissioning-example.pdf',
+  },
+]
+
 function CommissioningDetails() {
   const navigate = useNavigate()
 
@@ -35,6 +42,26 @@ function CommissioningDetails() {
           <h1 className="commissioning-flow__title">
             ВВЕДЕННЯ В ЕКСПЛУАТАЦІЮ
           </h1>
+
+          <div className="commissioning-flow__docs-dropdown">
+  <span className="commissioning-flow__docs-trigger">
+    Приклад документів
+  </span>
+
+  <div className="commissioning-flow__docs-menu">
+    {commissioningExampleDocuments.map((doc, index) => (
+      <a
+        key={index}
+        href={doc.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="commissioning-flow__docs-link"
+      >
+        {doc.name}
+      </a>
+    ))}
+  </div>
+</div>
 
           <p className="commissioning-flow__text">
             Маючи багаторічний досвід у введенні об&apos;єктів в експлуатацію,

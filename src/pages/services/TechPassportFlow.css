@@ -223,3 +223,94 @@
     font-size: 18px;
   }
 }
+
+.tech-passport-flow__docs-dropdown {
+  position: relative;
+  z-index: 5;
+  width: fit-content;
+  margin: -2px auto 24px;
+}
+
+.tech-passport-flow__docs-trigger {
+  color: #666;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.tech-passport-flow__docs-trigger:hover {
+  color: #111;
+}
+
+.tech-passport-flow__docs-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+
+  min-width: 290px;
+
+  padding: 8px;
+
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
+}
+
+.tech-passport-flow__docs-dropdown:hover
+  .tech-passport-flow__docs-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tech-passport-flow__docs-link {
+  display: block;
+
+  padding: 12px 14px;
+  border-radius: 10px;
+
+  color: #111;
+  text-decoration: none;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  transition: background 0.2s ease;
+}
+
+.tech-passport-flow__docs-link:hover {
+  background: #f5f5f5;
+}
+
+@media (max-width: 700px) {
+  .tech-passport-flow__docs-dropdown {
+    margin-bottom: 20px;
+  }
+
+  .tech-passport-flow__docs-menu {
+    position: static;
+
+    min-width: 100%;
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: none;
+
+    margin-top: 12px;
+
+    box-shadow: none;
+  }
+}

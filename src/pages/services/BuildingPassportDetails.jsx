@@ -1,6 +1,21 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './CommissioningFlow.css'
 
+const buildingExampleDocuments = [
+  {
+    name: ' Висновок про технічний стан ',
+    file: '/documents/building-passport-1.pdf',
+  },
+  {
+    name: 'Містобудівні умови та обмеження для проєктування',
+    file: '/documents/building-passport-2.pdf',
+  },
+  {
+    name: 'Схема забудови',
+    file: '/documents/building-passport-3.pdf',
+  },
+]
+
 function BuildingPassportDetails() {
   const navigate = useNavigate()
 
@@ -37,6 +52,26 @@ function BuildingPassportDetails() {
   <br />
   Містобудівні умови
 </h1>
+
+<div className="commissioning-flow__docs-dropdown">
+  <span className="commissioning-flow__docs-trigger">
+    Приклад документів
+  </span>
+
+  <div className="commissioning-flow__docs-menu">
+    {buildingExampleDocuments.map((doc, index) => (
+      <a
+        key={index}
+        href={doc.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="commissioning-flow__docs-link"
+      >
+        {doc.name}
+      </a>
+    ))}
+  </div>
+</div>
 
           <p className="commissioning-flow__text">
             Під час воєнного стану будівництво індивідуальних житлових, садових,

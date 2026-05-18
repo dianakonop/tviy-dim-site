@@ -1,6 +1,17 @@
 import { useNavigate } from 'react-router-dom'
 import './TechPassportFlow.css'
 
+const exampleDocuments = [
+  {
+    name: 'Технічний паспорт квартири',
+    file: '/documents/tech-passport-example-1.pdf',
+  },
+  {
+    name: 'Технічний паспорт нежитлового приміщення',
+    file: '/documents/tech-passport-example-2.pdf',
+  },
+]
+
 function TechPassportPrices() {
   const navigate = useNavigate()
 
@@ -50,6 +61,26 @@ function TechPassportPrices() {
           <h1 className="tech-passport-flow__title">
             ТЕХНІЧНИЙ ПАСПОРТ
           </h1>
+
+          <div className="tech-passport-flow__docs-dropdown">
+  <span className="tech-passport-flow__docs-trigger">
+    Приклад документів
+  </span>
+
+  <div className="tech-passport-flow__docs-menu">
+    {exampleDocuments.map((doc, index) => (
+      <a
+        key={index}
+        href={doc.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="tech-passport-flow__docs-link"
+      >
+        {doc.name}
+      </a>
+    ))}
+  </div>
+</div>
 
           <div className="tech-passport-flow__watermark">
             ПАСПОРТ
