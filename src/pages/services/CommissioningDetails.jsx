@@ -3,7 +3,7 @@ import './CommissioningFlow.css'
 
 const commissioningExampleDocuments = [
   {
-    name: 'Приклад введення в експлуатацію',
+    name: 'Приклад декларації про введення в експлуатацію',
     file: '/documents/commissioning-example.pdf',
   },
 ]

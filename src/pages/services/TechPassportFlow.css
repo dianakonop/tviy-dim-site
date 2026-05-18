@@ -149,6 +149,123 @@
   color: #000;
 }
 
+/* ======================================== */
+/* DOCUMENTS DROPDOWN */
+/* ======================================== */
+
+.tech-passport-flow__docs-dropdown {
+  position: relative;
+  z-index: 20;
+  width: fit-content;
+  margin: -2px auto 24px;
+}
+
+.tech-passport-flow__docs-trigger {
+  position: relative;
+
+  display: inline-block;
+
+  color: #4f4f4f;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tech-passport-flow__docs-trigger::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 100%;
+  height: 1.5px;
+
+  background: #111;
+
+  transform: scaleX(0.55);
+  transform-origin: center;
+
+  opacity: 0.55;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.tech-passport-flow__docs-trigger:hover {
+  color: #000;
+  transform: translateY(-1px);
+}
+
+.tech-passport-flow__docs-trigger:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.tech-passport-flow__docs-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+
+  transform: translateX(-50%) translateY(8px);
+
+  min-width: 290px;
+
+  padding: 8px;
+
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
+}
+
+.tech-passport-flow__docs-dropdown:hover
+  .tech-passport-flow__docs-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tech-passport-flow__docs-link {
+  display: block;
+
+  padding: 12px 14px;
+  border-radius: 10px;
+
+  color: #111;
+  text-decoration: none;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  transition: background 0.2s ease;
+}
+
+.tech-passport-flow__docs-link:hover {
+  background: #f5f5f5;
+}
+
+/* ======================================== */
+/* TABLET */
+/* ======================================== */
+
 @media (max-width: 1200px) {
   .tech-passport-flow {
     min-height: auto;
@@ -166,6 +283,10 @@
     min-height: 330px;
   }
 }
+
+/* ======================================== */
+/* MOBILE */
+/* ======================================== */
 
 @media (max-width: 700px) {
   .tech-passport-flow {
@@ -222,91 +343,17 @@
     min-height: 50px;
     font-size: 18px;
   }
-}
 
-.tech-passport-flow__docs-dropdown {
-  position: relative;
-  z-index: 5;
-  width: fit-content;
-  margin: -2px auto 24px;
-}
-
-.tech-passport-flow__docs-trigger {
-  color: #666;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.tech-passport-flow__docs-trigger:hover {
-  color: #111;
-}
-
-.tech-passport-flow__docs-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-
-  min-width: 290px;
-
-  padding: 8px;
-
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    visibility 0.2s ease;
-
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
-}
-
-.tech-passport-flow__docs-dropdown:hover
-  .tech-passport-flow__docs-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.tech-passport-flow__docs-link {
-  display: block;
-
-  padding: 12px 14px;
-  border-radius: 10px;
-
-  color: #111;
-  text-decoration: none;
-
-  font-size: 14px;
-  line-height: 1.4;
-
-  transition: background 0.2s ease;
-}
-
-.tech-passport-flow__docs-link:hover {
-  background: #f5f5f5;
-}
-
-
-
-  @media (max-width: 700px) {
   .tech-passport-flow__docs-dropdown {
     margin: 0 auto 22px;
   }
 
   .tech-passport-flow__docs-menu {
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-
     width: 280px;
     min-width: unset;
+
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
   }
 
   .tech-passport-flow__docs-dropdown:hover
@@ -314,4 +361,3 @@
     transform: translateX(-50%) translateY(0);
   }
 }
-

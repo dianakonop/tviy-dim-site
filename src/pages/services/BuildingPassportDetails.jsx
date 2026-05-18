@@ -11,7 +11,7 @@ const buildingExampleDocuments = [
     file: '/documents/building-passport-2.pdf',
   },
   {
-    name: 'Схема забудови',
+    name: 'Схема намірів забудови земельної ділянки',
     file: '/documents/building-passport-3.pdf',
   },
 ]

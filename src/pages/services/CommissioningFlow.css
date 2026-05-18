@@ -367,27 +367,111 @@
 }
 
 /* ===================================================== */
-/* EXAMPLE LINK */
+/* DOCUMENTS DROPDOWN */
 /* ===================================================== */
 
-.commissioning-flow__example {
-  display: block;
+.commissioning-flow__docs-dropdown {
+  position: relative;
+  z-index: 20;
 
-  margin-top: 18px;
+  width: fit-content;
 
-  color: #9c9c9c;
-
-  text-align: center;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-
-  font-size: 15px;
-
-  transition: 0.2s ease;
+  margin: -6px auto 22px;
 }
 
-.commissioning-flow__example:hover {
+.commissioning-flow__docs-trigger {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding-bottom: 3px;
+
+  color: #444;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.45);
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.commissioning-flow__docs-trigger::after {
+  content: '↘';
+  font-size: 13px;
+  transform: translateY(-1px);
+}
+
+.commissioning-flow__docs-trigger:hover {
   color: #000;
+  border-color: #000;
+}
+
+.commissioning-flow__docs-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+
+  min-width: 310px;
+
+  padding: 8px;
+
+  background: #fff;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 16px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(-50%) translateY(8px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+
+  z-index: 30;
+}
+
+.commissioning-flow__docs-dropdown:hover
+  .commissioning-flow__docs-menu {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.commissioning-flow__docs-link {
+  display: block;
+
+  padding: 12px 14px;
+
+  border-radius: 10px;
+
+  color: #111;
+  text-decoration: none;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.commissioning-flow__docs-link:hover {
+  background: #f5f5f5;
+  transform: translateX(2px);
 }
 
 /* ===================================================== */
@@ -413,10 +497,6 @@
 /* MOBILE */
 /* ===================================================== */
 
-/* ===================================================== */
-/* MOBILE */
-/* ===================================================== */
-
 @media (max-width: 768px) {
   .commissioning-flow {
     min-height: auto;
@@ -433,34 +513,30 @@
     justify-content: flex-start;
   }
 
-  /* BACK BUTTON */
-
   .commissioning-flow__back {
     top: 24px;
     left: 24px;
   }
 
-  /* TITLES */
-
   .commissioning-flow__title {
-  width: 100%;
-  max-width: 100%;
+    width: 100%;
+    max-width: 100%;
 
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;
 
-  text-align: center;
+    text-align: center;
 
-  font-size: clamp(26px, 7vw, 34px);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
 
-  white-space: normal;
-  word-break: keep-all;
-  overflow-wrap: anywhere;
-  hyphens: none;
-}
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    hyphens: none;
+  }
 
   .commissioning-flow__text {
     max-width: 92%;
@@ -471,8 +547,6 @@
 
     font-size: 15px;
   }
-
-  /* BUTTONS */
 
   .commissioning-flow__actions {
     flex-direction: column;
@@ -486,8 +560,6 @@
 
     font-size: 18px;
   }
-
-  /* PRICE TABLES */
 
   .commissioning-flow__prices--commissioning,
   .commissioning-flow__prices:not(.commissioning-flow__prices--commissioning) {
@@ -506,8 +578,6 @@
     transform: none;
   }
 
-  /* PRICE CARDS */
-
   .commissioning-flow__price-card,
   .commissioning-flow__price-card--commissioning {
     min-height: auto;
@@ -518,8 +588,6 @@
     border-bottom: none;
     border-radius: 18px;
   }
-
-  /* PRICE TITLES */
 
   .commissioning-flow__price-title {
     max-width: 92%;
@@ -532,10 +600,6 @@
 
     font-size: 20px;
     line-height: 1.15;
-
-    word-break: normal;
-    overflow-wrap: normal;
-    hyphens: none;
   }
 
   .commissioning-flow__price-title--small {
@@ -548,13 +612,7 @@
 
     font-size: 16px;
     line-height: 1.15;
-
-    word-break: normal;
-    overflow-wrap: normal;
-    hyphens: none;
   }
-
-  /* PRICE VALUES */
 
   .commissioning-flow__price-value {
     font-size: 34px;
@@ -563,8 +621,6 @@
   .commissioning-flow__price-value--small {
     font-size: 24px;
   }
-
-  /* ORDER BUTTON */
 
   .commissioning-flow__order-btn {
     position: relative;
@@ -581,99 +637,18 @@
 
     transform: none;
   }
-}
 
-.commissioning-flow__docs-dropdown {
-  position: relative;
-  z-index: 5;
-
-  width: fit-content;
-
-  margin: -6px auto 22px;
-}
-
-.commissioning-flow__docs-trigger {
-  color: #707070;
-  font-size: 15px;
-  font-weight: 500;
-
-  cursor: pointer;
-
-  transition: color 0.2s ease;
-}
-
-.commissioning-flow__docs-trigger:hover {
-  color: #111;
-}
-
-.commissioning-flow__docs-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-
-  min-width: 310px;
-
-  padding: 8px;
-
-  background: #fff;
-
-  border: 1px solid #e6e6e6;
-  border-radius: 16px;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transform: translateX(-50%) translateY(8px);
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    visibility 0.2s ease;
-
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
-
-  z-index: 20;
-}
-
-.commissioning-flow__docs-dropdown:hover
-  .commissioning-flow__docs-menu {
-  opacity: 1;
-  visibility: visible;
-
-  transform: translateX(-50%) translateY(0);
-}
-
-.commissioning-flow__docs-link {
-  display: block;
-
-  padding: 12px 14px;
-
-  border-radius: 10px;
-
-  color: #111;
-  text-decoration: none;
-
-  font-size: 14px;
-  line-height: 1.4;
-
-  transition: background 0.2s ease;
-}
-
-.commissioning-flow__docs-link:hover {
-  background: #f5f5f5;
-}
-
-@media (max-width: 768px) {
   .commissioning-flow__docs-dropdown {
     margin: 0 auto 22px;
   }
 
   .commissioning-flow__docs-menu {
     left: 50%;
-    transform: translateX(-50%) translateY(8px);
 
     width: 280px;
     min-width: unset;
+
+    transform: translateX(-50%) translateY(8px);
   }
 
   .commissioning-flow__docs-dropdown:hover
