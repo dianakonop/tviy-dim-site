@@ -404,7 +404,7 @@
 }
 
 .commissioning-flow__docs-trigger::after {
-  content: '↘';
+  content: 'v';
   font-size: 13px;
   transform: translateY(-1px);
 }
