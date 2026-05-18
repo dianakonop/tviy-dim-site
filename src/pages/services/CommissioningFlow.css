@@ -665,21 +665,19 @@
 
 @media (max-width: 768px) {
   .commissioning-flow__docs-dropdown {
-    margin-bottom: 20px;
+    margin: 0 auto 22px;
   }
 
   .commissioning-flow__docs-menu {
-    position: static;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
 
-    min-width: 100%;
+    width: 280px;
+    min-width: unset;
+  }
 
-    opacity: 1;
-    visibility: visible;
-
-    transform: none;
-
-    margin-top: 12px;
-
-    box-shadow: none;
+  .commissioning-flow__docs-dropdown:hover
+    .commissioning-flow__docs-menu {
+    transform: translateX(-50%) translateY(0);
   }
 }

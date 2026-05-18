@@ -393,16 +393,20 @@
 }
 
 @media (max-width: 768px) {
+  .technical-report-flow__docs-dropdown {
+    margin: 0 auto 22px;
+  }
+
   .technical-report-flow__docs-menu {
-    position: static;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
 
-    opacity: 1;
-    visibility: visible;
-    transform: none;
+    width: 280px;
+    min-width: unset;
+  }
 
-    margin-top: 12px;
-    min-width: 100%;
-
-    box-shadow: none;
+  .technical-report-flow__docs-dropdown:hover
+    .technical-report-flow__docs-menu {
+    transform: translateX(-50%) translateY(0);
   }
 }
