@@ -10,6 +10,10 @@ const exampleDocuments = [
     name: 'Технічний паспорт нежитлового приміщення',
     file: '/documents/tech-passport-example-2.pdf',
   },
+  {
+    name: 'Технічний паспорт житлового будинку',
+    file: '/documents/tech-passport-example-3.pdf',
+  },
 ]
 
 function TechPassportPrices() {
